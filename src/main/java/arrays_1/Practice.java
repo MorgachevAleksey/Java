@@ -33,6 +33,21 @@ public class Practice {
             //length - встроенное поле маасива, в котором его длина
             int[] arr10 = new int[11];
             System.out.println(arr10.length);
+
+            //fill - заполнение
+            int[] arr11 = new int[11];
+            Arrays.fill(arr11, 10); //Всего массива
+            System.out.println(Arrays.toString(arr11));
+            int[] arr12 = new int[11];
+            Arrays.fill(arr12, 4, 8,200); //Части массива
+            System.out.println(Arrays.toString(arr12));
+            String[] arr13 = new String[11];
+            Arrays.fill(arr13, "Hello"); //Массива обьектов
+            System.out.println(Arrays.toString(arr13));
+
+            int[] arr14 = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+            int[] arr15 = new int[9];
+            System.arraycopy(arr14, 0, arr15, 0, 9);
         }
     }
 
