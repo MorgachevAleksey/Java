@@ -2,15 +2,15 @@ package arrays_1;
 
 //Имопрт класса-утилиты с методами для работы с массивами сс фиксированным размером
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Practice {
     public static void main(String[] args) {
         Demonstration.dem();
-        Exercise.ex();
     }
 
-    static class Demonstration{
-        public static void dem(){
+    static class Demonstration {
+        public static void dem() {
             //Обьявление массива
             int[] arr1;
             //Создание массива
@@ -25,54 +25,80 @@ public class Practice {
             System.out.println(Arrays.toString(new int[]{1, 2, 3, 4, 5, 6})); //Приемущество метода - возможность использовать массив на лету, не присваивая переменной
             //3 способ, по элементам
             int[] arr6 = new int[7];
-            for (int element : arr6){ //цикл for-each
-                element = 6; //всем елементам массива по очереди присвоится значение - 6
+            for (int element : arr6) { //цикл for-each
+                element = 6; //Исходный массив не изменится
             }
 
-            //Основные методы (и поля) работы с массивом
-            //length - встроенное поле маасива, в котором его длина
+            //Основные методы (и поля) работы с массивом:
+            //0) length - встроенное поле маасива, в котором его длина
             int[] arr10 = new int[11];
             System.out.println(arr10.length);
 
-            //fill - заполнение
+            //1) fill - заполнение
             int[] arr11 = new int[11];
             Arrays.fill(arr11, 10); //Всего массива
             System.out.println(Arrays.toString(arr11));
             int[] arr12 = new int[11];
-            Arrays.fill(arr12, 4, 8,200); //Части массива
+            Arrays.fill(arr12, 4, 8, 200); //Части массива
             System.out.println(Arrays.toString(arr12));
             String[] arr13 = new String[11];
             Arrays.fill(arr13, "Hello"); //Массива обьектов
             System.out.println(Arrays.toString(arr13));
 
-            int[] arr14 = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-            int[] arr15 = new int[9];
-            System.arraycopy(arr14, 0, arr15, 0, 9);
-        }
-    }
+            //2) Копирование массива
+            int[] arr14 = new int[11];
+            Arrays.fill(arr14, 4);
+            //метод copyOf создает копию массива, с возможностью изменить размер
+            int[] arr15 = Arrays.copyOf(arr14, arr14.length);
+            System.out.println(Arrays.toString(arr15));
 
-    static class Exercise{
-        public static void ex(){
-            //Создать массив целых чисел, размером 10, заполнить 0-9, вывести на экран
-            int[] e1 = new int[10];
-            for (int i = 0; i <= 9; i++){
-                e1[i] = i;
+            //3) Сравнение массивов
+            System.out.println(Arrays.equals(arr14, arr15));
+            System.out.println(Arrays.equals(arr14, arr11));
+
+            //4) Сортировка
+            int[] arr16 = {2, 5, 234, 23, 32, 1, 0, 23423, 4};
+            Arrays.sort(arr16);
+            System.out.println(Arrays.toString(arr16));
+            //Т. к. компаратор только для обьектов
+            Integer[] arr17 = {2, 5, 234, 23, 32, 1, 0, 23423, 4};
+            Arrays.sort(arr17, Collections.reverseOrder());
+            System.out.println(Arrays.toString(arr17));
+
+            //5) Бинарный поиск
+            System.out.println(Arrays.binarySearch(arr16, 23));
+
+            //Перебор
+            for (int i = 0; i < arr16.length; i++) {
+                System.out.println(arr16[i]);
             }
-            System.out.println(Arrays.toString(e1)); //Метод для строкового представления массива
+            System.out.println("------------------");
+            for (int element : arr16) { //Возвращает копию элемента, поэтому не может изменить исходный массив
+                System.out.println(element);
+            }
 
-            //Создать массив строк с именами, изменить второй элемент и вывести все элементы
-            String[] e2 = {"Alexey", "Alexander"};
-            e2[1] = "Alex";
-            System.out.println(Arrays.toString(e2));
+            //Глубокое копирование многомерных массивов
+            int[][] jug =
+                    {
+                            {1, 2},
+                            {1, 2, 3}
+                    };
+            int[][] copy_jug = new int[jug.length][];
+            for (int i = 0; i < copy_jug.length; i++) {
+                copy_jug[i] = Arrays.copyOf(jug[i], jug[i].length);
+            }
 
-            //Массив символов размером 5 с символами от A до E
-            char[]e3 = new char[5];
-            e3[0] = 'A';
-            e3[1] = 'B';
-            e3[2] = 'C';
-            e3[3] = 'D';
-            e3[4] = 'E';
-            System.out.println(Arrays.toString(e3));
+            //Сравнение и вывод
+            System.out.println(Arrays.deepEquals(jug, copy_jug));
+            System.out.println(Arrays.deepToString(jug));
+
+            //Вызов метода с параметром типа varargs
+            printAll("Hello", "Bye");
+        }
+
+        //Метод с параметро типа varargs - фактически массивом динамического размера
+        public static void printAll(String... elements){
+            System.out.println(Arrays.deepToString(elements));
         }
     }
 }
