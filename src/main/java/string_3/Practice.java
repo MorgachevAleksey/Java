@@ -1,4 +1,4 @@
-package string_2;
+package string_3;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
