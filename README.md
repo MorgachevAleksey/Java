@@ -2,8 +2,14 @@
 
 Содержание:
 
+0. Теория Spring Boot
+   `src/main/java/l00_springBoot`
+
+0. Теория SQL
+   `src/main/java/l00_sql`
+
 1. Общая теория
-   `src/main/java/l01_theory`
+   `src/main/java/l01_javaTheory`
 
 2. Примитивы
    `src/main/java/l02_primitiveTypes`
@@ -39,4 +45,8 @@
 10. Дженерики
     `src/main/java/l10_generics`
 
-Директория каждой темы включает теоритический и практический файлы
+11. Stream API, lamda, Optional
+    `src/main/java/l11_functional`
+
+12. Сети
+    `src/main/java/l12_networks`

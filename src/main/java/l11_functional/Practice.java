@@ -1,4 +1,4 @@
-package ll10_generics;
+package l11_functional;
 
 public class Practice {
 }
