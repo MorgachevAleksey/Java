@@ -1,4 +1,4 @@
-package l07_multithreading;
+package java.l07_multithreading;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

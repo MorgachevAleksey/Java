@@ -1,4 +1,4 @@
-package l04_arrays;
+package java.l04_arrays;
 
 //Имопрт класса-утилиты с методами для работы с массивами сс фиксированным размером
 import java.util.Arrays;

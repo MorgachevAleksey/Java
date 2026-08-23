@@ -1,4 +1,4 @@
-package l05_collections.list;
+package java.l05_collections.list;
 
 //Импорт коллекций
 import java.util.List;
