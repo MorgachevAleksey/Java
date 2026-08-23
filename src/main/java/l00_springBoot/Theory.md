@@ -94,6 +94,17 @@ JUnit 5
 Mockito
 
 ---
+Скоупы
+- Стандартные
+  1) singleton
+  2) prototype
+- Beб
+  1) request
+  2) session
+  3) application
+  4) websocket
+
+---
 # Проекты на spring boot
 - Vally
 - Fall
